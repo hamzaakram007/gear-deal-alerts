@@ -1,8 +1,33 @@
+import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { DealBoard } from "@/components/DealBoard";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Gear Deal Alerts",
+  applicationCategory: "ShoppingApplication",
+  operatingSystem: "Web",
+  description:
+    "Watch console gear deals for SSDs, headsets, and TVs with a local watchlist and email alert stub.",
+  author: {
+    "@type": "Person",
+    name: "Hamza Akram",
+  },
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+};
 
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <section className="hero-wash relative overflow-hidden">
         <div className="noise-overlay absolute inset-0" aria-hidden />
         <div
@@ -46,7 +71,10 @@ export default function Home() {
 
       <DealBoard />
 
-      <section className="border-t border-[color:var(--line)]">
+      <section
+        id="how"
+        className="scroll-mt-20 border-t border-[color:var(--line)]"
+      >
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
           <h2 className="font-[family-name:var(--font-display)] text-2xl text-[color:var(--ink)]">
             How this MVP works
@@ -63,7 +91,7 @@ export default function Home() {
               },
               {
                 t: "3. Stub alert",
-                d: "Queue an email stub. Wire Resend or Discord later for real pings.",
+                d: "Queue an email stub via /api/alerts. Wire Resend or Discord later for real pings — nothing is emailed today.",
               },
             ].map((step) => (
               <li key={step.t} className="border-t border-[color:var(--line)] pt-4">
@@ -76,15 +104,9 @@ export default function Home() {
               </li>
             ))}
           </ol>
-          <p className="mt-10 max-w-3xl text-sm leading-relaxed text-[color:var(--muted)]">
-            <strong className="font-medium text-[color:var(--ink)]">
-              Affiliate disclosure:
-            </strong>{" "}
-            Buy buttons use placeholder affiliate URLs (
-            <code>example.com/aff/…?tag=PLACEHOLDER</code>). If real affiliate
-            networks are connected later, purchases after those clicks may earn a
-            commission at no extra cost to you.
-          </p>
+          <div className="mt-10">
+            <AffiliateDisclosure />
+          </div>
         </div>
       </section>
     </>

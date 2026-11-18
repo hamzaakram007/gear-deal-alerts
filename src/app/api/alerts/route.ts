@@ -47,7 +47,7 @@ export async function POST(request: Request) {
     ok: true,
     stub: true,
     message:
-      "Alert queued in stub mode. No email or Discord message was sent. Connect Resend or a Discord webhook to go live.",
+      "Demo stub only: alert was queued in memory for this request response. No email or Discord message was sent. Connect Resend or a Discord webhook to go live.",
     alert: {
       id: stubId,
       channel,
@@ -57,6 +57,7 @@ export async function POST(request: Request) {
       currentPrice: deal?.price ?? null,
       targetPrice: deal?.targetPrice ?? null,
       queuedAt: new Date().toISOString(),
+      delivery: "none",
     },
   });
 }

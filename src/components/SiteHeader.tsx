@@ -9,16 +9,22 @@ export function SiteHeader() {
             Gear Deal Alerts
           </span>
         </Link>
-        <nav className="flex items-center gap-4 text-sm text-[color:var(--muted)]">
+        <nav
+          aria-label="Primary"
+          className="flex items-center gap-4 text-sm text-[color:var(--muted)]"
+        >
           <a href="#watchlist" className="transition hover:text-[color:var(--ink)]">
             Watchlist
           </a>
           <a href="#deals" className="transition hover:text-[color:var(--ink)]">
             Deals
           </a>
+          <a href="#how" className="hidden transition hover:text-[color:var(--ink)] sm:inline">
+            How it works
+          </a>
           <a
             href="https://github.com/hamzaakram007/console-gear-hub"
-            className="hidden transition hover:text-[color:var(--ink)] sm:inline"
+            className="hidden transition hover:text-[color:var(--ink)] md:inline"
             rel="noopener noreferrer"
             target="_blank"
           >

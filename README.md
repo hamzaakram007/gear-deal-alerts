@@ -22,10 +22,11 @@ Open [http://localhost:3000](http://localhost:3000).
 ## MVP scope
 
 - ~10 seed SKUs with mock prices + short history
-- Watch / unwatch UI
+- Watch / unwatch UI (localStorage)
 - Drop % + “at target” badges
-- Email alert stub API
-- Affiliate disclosure + placeholder deep links
+- Email alert stub API (`POST /api/alerts` — no real send)
+- Affiliate disclosure + `example.com` placeholder deep links
+- SEO basics: metadata, Open Graph, `sitemap.xml`, `robots.txt`, JSON-LD
 
 ## Not in MVP
 
@@ -33,6 +34,14 @@ Open [http://localhost:3000](http://localhost:3000).
 - Real Resend / Discord delivery
 - Auth, Pro plan, or SMS
 
+## Deploy
+
+Linked to Vercel team project `gear-deal-alerts`. Optional:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://gear-deal-alerts.vercel.app
+```
+
 ## License
 
-Private project under Hamza Akram — ship as public GitHub repo for portfolio / launch.
+Public repo under Hamza Akram.
