@@ -9,8 +9,12 @@ export function SiteFooter() {
             <p className="font-[family-name:var(--font-display)] text-base text-[color:var(--ink)]">
               Gear Deal Alerts
             </p>
+            <p className="mt-1 text-xs uppercase tracking-wide text-[color:var(--muted)]">
+              A NeonGulf product
+            </p>
             <p className="mt-2 leading-relaxed">
-              Price-drop watcher for console gear. Mock prices for MVP. Pairs with{" "}
+              Price-drop watcher for console gear. Sample prices until live
+              retailer feeds. Pairs with{" "}
               <a
                 href="https://github.com/hamzaakram007/console-gear-hub"
                 className="underline decoration-[color:var(--line)] underline-offset-2 transition hover:text-[color:var(--accent-ink)] hover:decoration-[color:var(--accent)]"
@@ -23,12 +27,21 @@ export function SiteFooter() {
             </p>
           </div>
           <div className="space-y-1">
-            <p>Built by Hamza Akram</p>
-            <p>Console-friendly · no Rockstar IP · no retailer scraping in MVP</p>
+            <p>
+              <a
+                href="https://neongulf.com"
+                className="underline decoration-[color:var(--line)] underline-offset-2 transition hover:text-[color:var(--accent-ink)] hover:decoration-[color:var(--accent)]"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                NeonGulf
+              </a>
+            </p>
+            <p>Console-friendly · no Rockstar IP · sample catalog for now</p>
             <p className="pt-2 text-xs">
-              Alert delivery is stubbed —{" "}
+              Alert delivery is not connected yet —{" "}
               <code className="text-[color:var(--ink)]">POST /api/alerts</code>{" "}
-              queues only; no real email or Discord send.
+              queues a preview only; no real email or Discord send.
             </p>
           </div>
         </div>

@@ -90,13 +90,13 @@ export function DealBoard() {
           alert?: { id: string; dealName?: string | null };
         };
         if (!res.ok || !data.ok) {
-          setError(data.error ?? "Could not queue alert stub.");
+          setError(data.error ?? "Could not queue alert preview.");
           return;
         }
         setStubId(data.alert?.id ?? null);
         setStatus(
           data.message ??
-            `Stub queued for ${data.alert?.dealName ?? "deal"} — no email sent.`,
+            `Alert preview queued for ${data.alert?.dealName ?? "deal"} — email delivery not connected yet.`,
         );
         setWatchlist((prev) =>
           prev.map((w) =>
@@ -104,7 +104,7 @@ export function DealBoard() {
           ),
         );
       } catch {
-        setError("Network error while queuing the stub alert.");
+        setError("Network error while queuing the alert preview.");
       }
     });
   }
@@ -121,8 +121,8 @@ export function DealBoard() {
               Your watchlist
             </h2>
             <p className="mt-2 max-w-xl text-[color:var(--muted)]">
-              Saved in this browser only. Mock drops vs last check show up as
-              badges — real push/email delivery is not wired yet.
+              Saved in this browser only. Sample drops vs last check show up as
+              badges — email delivery is not connected yet.
             </p>
           </div>
           <p className="text-sm text-[color:var(--muted)]" aria-live="polite">
@@ -148,7 +148,7 @@ export function DealBoard() {
               href="#deals"
               className="mt-4 inline-block text-sm font-medium text-[color:var(--accent-ink)] underline decoration-[color:var(--accent)]/40 underline-offset-2"
             >
-              Jump to seed deals →
+              Jump to sample deals →
             </a>
           </div>
         ) : (
@@ -168,28 +168,28 @@ export function DealBoard() {
         <form
           onSubmit={onSubmitAlert}
           className="mt-10 rounded-md border border-dashed border-[color:var(--warm)]/40 bg-[color:var(--warm)]/[0.06] p-5 sm:p-6"
-          aria-describedby="alert-stub-help"
+          aria-describedby="alert-preview-help"
         >
           <div className="flex flex-wrap items-center gap-2">
             <h3 className="font-[family-name:var(--font-display)] text-xl text-[color:var(--ink)]">
-              Email alert stub
+              Email alert preview
             </h3>
             <span className="rounded-md border border-[color:var(--warm)]/35 bg-white/70 px-2 py-0.5 text-xs font-medium text-[color:var(--warm)]">
-              Demo only — no email sent
+              Alert preview — email delivery not connected yet
             </span>
           </div>
           <p
-            id="alert-stub-help"
+            id="alert-preview-help"
             className="mt-2 max-w-2xl text-sm text-[color:var(--muted)]"
           >
             Calls{" "}
             <code className="text-[color:var(--ink)]">POST /api/alerts</code> and
-            returns a stub queue id. Resend / Discord webhooks are not connected
-            — your inbox will stay empty.
+            returns a preview queue id. Resend / Discord webhooks are not
+            connected — your inbox will stay empty.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-end">
             <label className="flex flex-1 flex-col gap-1.5 text-sm">
-              <span className="text-[color:var(--muted)]">Email (for stub payload)</span>
+              <span className="text-[color:var(--muted)]">Email (for preview payload)</span>
               <input
                 type="email"
                 required
@@ -220,7 +220,7 @@ export function DealBoard() {
               disabled={pending || watchedDeals.length === 0}
               className="rounded-md bg-[color:var(--ink)] px-5 py-2.5 text-sm font-medium text-[color:var(--paper)] transition hover:bg-[color:var(--accent-ink)] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {pending ? "Queuing stub…" : "Queue stub alert"}
+              {pending ? "Queuing preview…" : "Queue alert preview"}
             </button>
           </div>
           {status && (
@@ -228,7 +228,7 @@ export function DealBoard() {
               className="mt-4 rounded-md border border-[color:var(--accent)]/30 bg-white/80 px-3 py-2.5 text-sm text-[color:var(--accent-ink)]"
               role="status"
             >
-              <p className="font-medium">Stub queued successfully</p>
+              <p className="font-medium">Alert preview queued</p>
               <p className="mt-1 text-[color:var(--muted)]">{status}</p>
               {stubId && (
                 <p className="mt-1 font-mono text-xs text-[color:var(--ink)]">
@@ -251,11 +251,10 @@ export function DealBoard() {
       >
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
           <h2 className="font-[family-name:var(--font-display)] text-3xl text-[color:var(--ink)] sm:text-4xl">
-            Seed deals
+            Sample catalog
           </h2>
           <p className="mt-2 max-w-2xl text-[color:var(--muted)]">
-            Ten mock SKUs with manual prices. Numbers are demo data — not live
-            retailer feeds.
+            Ten sample SKUs with illustrative prices — not live retailer feeds.
           </p>
 
           <div className="mt-5">
@@ -329,7 +328,7 @@ function DealRow({
           <span className="text-xs uppercase tracking-wide text-[color:var(--muted)]">
             {deal.categoryLabel} · {deal.retailer}
           </span>
-          <span className="text-xs text-[color:var(--muted)]">Mock price</span>
+          <span className="text-xs text-[color:var(--muted)]">Sample price</span>
           {dropped && (
             <span className="animate-pulse-soft text-xs font-medium text-[color:var(--accent-ink)]">
               ↓ {drop}% drop
@@ -387,14 +386,14 @@ function DealRow({
             href={deal.affiliateUrl}
             target="_blank"
             rel="noopener noreferrer sponsored nofollow"
-            title="Placeholder affiliate link — opens example.com"
+            title="Sample buy link — opens example.com"
             className="rounded-md bg-[color:var(--ink)] px-3.5 py-2 text-sm font-medium text-[color:var(--paper)] transition hover:bg-[color:var(--accent-ink)]"
           >
-            Buy link (placeholder)
+            Sample buy link
           </a>
         </div>
         <p className="text-[11px] leading-relaxed text-[color:var(--muted)]">
-          Affiliate stub →{" "}
+          Sample link →{" "}
           <code className="break-all text-[color:var(--ink)]/80">
             {deal.affiliateUrl.replace("https://", "")}
           </code>

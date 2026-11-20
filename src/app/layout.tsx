@@ -6,7 +6,7 @@ import { StubBanner } from "@/components/StubBanner";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://gear-deal-alerts.vercel.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://deals.neongulf.com";
 
 const display = Syne({
   variable: "--font-display",
@@ -22,14 +22,14 @@ const body = Figtree({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Gear Deal Alerts — SSD, headset & TV price-drop watcher",
-    template: "%s · Gear Deal Alerts",
+    default: "Gear Deal Alerts — SSD, headset & TV price-drop watcher · NeonGulf",
+    template: "%s · Gear Deal Alerts · NeonGulf",
   },
   description:
-    "Watch console gear deals for SSDs, headsets, and TVs. Mock prices for MVP, email alert stub, and affiliate buy-link placeholders. Built by Hamza Akram.",
+    "Watch console gear deals for SSDs, headsets, and TVs. Sample prices for illustration until live retailer feeds. A NeonGulf product.",
   applicationName: "Gear Deal Alerts",
-  authors: [{ name: "Hamza Akram" }],
-  creator: "Hamza Akram",
+  authors: [{ name: "NeonGulf" }],
+  creator: "NeonGulf",
   keywords: [
     "gear deals",
     "price drop alerts",
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "gaming headset deals",
     "TV deals",
     "console gear",
+    "NeonGulf",
     "affiliate",
   ],
   alternates: {
@@ -46,16 +47,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Gear Deal Alerts",
+    siteName: "Gear Deal Alerts · NeonGulf",
     title: "Gear Deal Alerts — watch SSD, headset & TV price drops",
     description:
-      "Local watchlist + mock price drops + email alert stub. Affiliate buy links are placeholders until networks are wired.",
+      "Local watchlist with sample prices and alert previews. Live retailer feeds and affiliate networks coming soon. A NeonGulf product.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gear Deal Alerts",
+    title: "Gear Deal Alerts · NeonGulf",
     description:
-      "Watch console gear prices. Mock MVP with alert stub and affiliate placeholders.",
+      "Watch console gear prices. Sample catalog until live retailer feeds. A NeonGulf product.",
   },
   robots: {
     index: true,

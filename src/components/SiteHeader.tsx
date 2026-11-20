@@ -5,6 +5,9 @@ export function SiteHeader() {
     <header className="relative z-20 border-b border-[color:var(--line)] bg-[color:var(--surface)]/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link href="/" className="group flex items-baseline gap-2">
+          <span className="text-xs font-medium uppercase tracking-[0.14em] text-[color:var(--muted)]">
+            NeonGulf
+          </span>
           <span className="font-[family-name:var(--font-display)] text-lg tracking-tight text-[color:var(--ink)] transition group-hover:text-[color:var(--accent)] sm:text-xl">
             Gear Deal Alerts
           </span>

@@ -8,7 +8,7 @@ type AlertBody = {
 };
 
 /**
- * MVP stub — accepts an alert request and returns a queued response.
+ * Alert preview endpoint — accepts a request and returns a queued response.
  * Wire Resend / Discord webhook here later. No real email is sent.
  */
 export async function POST(request: Request) {
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
 
   if (!email || !email.includes("@")) {
     return NextResponse.json(
-      { ok: false, error: "A valid email is required for this stub." },
+      { ok: false, error: "A valid email is required to preview an alert." },
       { status: 400 },
     );
   }
@@ -41,15 +41,15 @@ export async function POST(request: Request) {
     );
   }
 
-  const stubId = `stub_${Date.now().toString(36)}`;
+  const previewId = `preview_${Date.now().toString(36)}`;
 
   return NextResponse.json({
     ok: true,
     stub: true,
     message:
-      "Demo stub only: alert was queued in memory for this request response. No email or Discord message was sent. Connect Resend or a Discord webhook to go live.",
+      "Alert preview queued for this request. No email or Discord message was sent — delivery is not connected yet.",
     alert: {
-      id: stubId,
+      id: previewId,
       channel,
       email,
       dealId: deal?.id ?? null,

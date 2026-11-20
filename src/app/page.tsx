@@ -8,10 +8,11 @@ const jsonLd = {
   applicationCategory: "ShoppingApplication",
   operatingSystem: "Web",
   description:
-    "Watch console gear deals for SSDs, headsets, and TVs with a local watchlist and email alert stub.",
+    "Watch console gear deals for SSDs, headsets, and TVs with a local watchlist. Sample prices until live retailer feeds. A NeonGulf product.",
   author: {
-    "@type": "Person",
-    name: "Hamza Akram",
+    "@type": "Organization",
+    name: "NeonGulf",
+    url: "https://neongulf.com",
   },
   offers: {
     "@type": "Offer",
@@ -41,6 +42,9 @@ export default function Home() {
         />
 
         <div className="relative mx-auto flex min-h-[72vh] max-w-6xl flex-col justify-center px-4 py-20 sm:px-6 sm:py-28">
+          <p className="animate-fade-up text-xs font-medium uppercase tracking-[0.18em] text-[color:var(--muted)]">
+            NeonGulf
+          </p>
           <p className="animate-fade-up font-[family-name:var(--font-display)] text-4xl leading-[1.05] tracking-tight text-[color:var(--ink)] sm:text-6xl md:text-7xl">
             Gear Deal Alerts
           </p>
@@ -48,8 +52,8 @@ export default function Home() {
             Watch SSD, headset, and TV prices — get nudged when they drop.
           </h1>
           <p className="animate-fade-up-delay-2 mt-4 max-w-xl text-base leading-relaxed text-[color:var(--muted)]">
-            Pick a few SKUs, keep a local watchlist, and queue an email stub when
-            a mock price falls. Built to pair with Console Gear Hub — this
+            Pick a few SKUs, keep a local watchlist, and preview email alerts when
+            a sample price falls. Built to pair with Console Gear Hub — this
             watches; the hub compares.
           </p>
           <div className="animate-fade-up-delay-2 mt-8 flex flex-wrap gap-3">
@@ -57,7 +61,7 @@ export default function Home() {
               href="#deals"
               className="rounded-md bg-[color:var(--ink)] px-5 py-2.5 text-sm font-medium text-[color:var(--paper)] transition hover:bg-[color:var(--accent-ink)]"
             >
-              Browse seed deals
+              Browse sample deals
             </a>
             <a
               href="#watchlist"
@@ -77,7 +81,7 @@ export default function Home() {
       >
         <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
           <h2 className="font-[family-name:var(--font-display)] text-2xl text-[color:var(--ink)]">
-            How this MVP works
+            How it works
           </h2>
           <ol className="mt-6 grid gap-6 sm:grid-cols-3">
             {[
@@ -87,11 +91,11 @@ export default function Home() {
               },
               {
                 t: "2. Spot drops",
-                d: "Seed prices include a short history. Drops vs last check are highlighted.",
+                d: "Sample prices include a short history. Drops vs last check are highlighted.",
               },
               {
-                t: "3. Stub alert",
-                d: "Queue an email stub via /api/alerts. Wire Resend or Discord later for real pings — nothing is emailed today.",
+                t: "3. Preview alerts",
+                d: "Queue an alert preview via /api/alerts. Email delivery is not connected yet — nothing is emailed today.",
               },
             ].map((step) => (
               <li key={step.t} className="border-t border-[color:var(--line)] pt-4">
