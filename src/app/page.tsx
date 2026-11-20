@@ -1,17 +1,47 @@
+import type { Metadata } from "next";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { DealBoard } from "@/components/DealBoard";
+import { BRAND_NAME, SITE_NAME, SITE_URL } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: `${SITE_NAME} — SSD, headset & TV price-drop watcher · ${BRAND_NAME}`,
+  },
+  description:
+    "Watch console gear deals for SSDs, headsets, and TVs. Sample prices for illustration until live retailer feeds. A NeonGulf product.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: `${SITE_NAME} — watch console gear price drops`,
+    description:
+      "Local watchlist with sample prices and alert previews. Pairs with Console Gear Hub comparisons.",
+    url: "/",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_NAME} · ${BRAND_NAME}`,
+    description:
+      "Watch SSD, headset, and TV sample prices on deals.neongulf.com.",
+  },
+};
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Gear Deal Alerts",
+  name: SITE_NAME,
+  url: SITE_URL,
   applicationCategory: "ShoppingApplication",
   operatingSystem: "Web",
   description:
     "Watch console gear deals for SSDs, headsets, and TVs with a local watchlist. Sample prices until live retailer feeds. A NeonGulf product.",
   author: {
     "@type": "Organization",
-    name: "NeonGulf",
+    name: BRAND_NAME,
+    url: "https://neongulf.com",
+  },
+  isPartOf: {
+    "@type": "WebSite",
+    name: BRAND_NAME,
     url: "https://neongulf.com",
   },
   offers: {
