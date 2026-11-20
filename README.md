@@ -39,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000).
 Linked to Vercel team project `gear-deal-alerts`. Optional:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://gear-deal-alerts.vercel.app
+NEXT_PUBLIC_SITE_URL=https://deals.neongulf.com
 ```
 
 ## License
